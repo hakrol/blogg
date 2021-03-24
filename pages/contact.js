@@ -1,14 +1,14 @@
-import Link from "next/link";
 import Head from "../components/layout/Head";
+import Layout from "../components/layout/Layout";
 
 export default function Contact() {
 	return (
 		<>
 			<Head title="Contact" />
 
-			<Link href="/">
-				<a>Home</a>
-			</Link>
+			<Layout>
+				<p>HELLO THIS IS CONTACT</p>
+			</Layout>
 		</>
 	);
 }

@@ -1,8 +1,8 @@
 import { FLOWERPOWER_POSTS_API } from "../../constants/api"
 import axios from "axios";
-import Layout from "../layout/Layout";
-import Head from "../layout/Head";
-import Heading from "../layout/Heading";
+import Layout from "../../components/layout/Layout";
+import Head from "../../components/layout/Head";
+import Heading from "../../components/layout/Heading";
 // import moment from "moment";
 
 export default function Post({ post }) {
@@ -24,7 +24,7 @@ export async function getStaticPaths () {
         const posts = response.data;
 
         const paths = posts.map((post) => ({
-            params: { id: post.id },
+            params: { id: post.id.toString() },
         }));
 
         return {paths: paths, fallback: false};
