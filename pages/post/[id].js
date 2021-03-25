@@ -1,17 +1,18 @@
-import { FLOWERPOWER_POSTS_API } from "../../constants/api"
+import { BASE_URL, FLOWERPOWER_POSTS_API } from "../../constants/api"
 import axios from "axios";
 import Layout from "../../components/layout/Layout";
 import Head from "../../components/layout/Head";
 import Heading from "../../components/layout/Heading";
-// import moment from "moment";
+import moment from "moment";
+
+const url = BASE_URL + FLOWERPOWER_POSTS_API;
 
 export default function Post({ post }) {
     return (
         <Layout>
             <Head title={post.title.rendered} />
             <Heading h1={post.title.rendered} />
-            {/* {moment(posts.date).format('DD MMMM YYYY')} */}
-            <div className="date" date={post.date} />
+            <p className="date">{moment(post.date).format('DD MMMM YYYY')}</p>
             <div className="content" dangerouslySetInnerHTML={{__html: post.content.rendered}} />
         </Layout>
     )
@@ -19,7 +20,7 @@ export default function Post({ post }) {
 
 export async function getStaticPaths () {
     try {
-        const response = await axios.get(FLOWERPOWER_POSTS_API);
+        const response = await axios.get(url);
 
         const posts = response.data;
 
@@ -36,7 +37,7 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps({ params }) {
-    const url = `${FLOWERPOWER_POSTS_API}/${params.id}`;
+    const url = `${BASE_URL + FLOWERPOWER_POSTS_API}/${params.id}`;
 
     let post = null;
 

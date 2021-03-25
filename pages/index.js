@@ -1,11 +1,11 @@
 import React from "react";
-// import Link from "next/link";
 import Head from "../components/layout/Head";
 import Layout from "../components/layout/Layout";
 import Heading from "../components/layout/Heading";
 import axios from "axios";
-import { FLOWERPOWER_POSTS_API } from "../constants/api";
-// import moment from 'moment';
+import { BASE_URL, FLOWERPOWER_POSTS_API } from "../constants/api";
+
+const url = BASE_URL + FLOWERPOWER_POSTS_API;
 
 export default function Home(props) {
 	return (
@@ -15,11 +15,11 @@ export default function Home(props) {
 				<Heading h1="THIS IS H!"/>
           {props.posts.map((post) =>  {
           return (
-            <React.Fragment key={post.id}>
-            <h3 key={post.title.rendered}>{post.title.rendered}</h3>
-            <div className="excerpt" key={post.excerpt.rendered} dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
-            <a key={post.id} href={`post/${post.id}`}>Read more</a>
-            </React.Fragment>
+            <div key={post.id}>
+              <h3>{post.title.rendered}</h3>
+              <div className="excerpt" dangerouslySetInnerHTML={{__html: post.excerpt.rendered}} />
+              <a href={`post/${post.id}`}>Read more</a>
+            </div>
           )
         })} 
 
@@ -34,7 +34,7 @@ export async function getStaticProps () {
 
   try {
 
-    const response = await axios.get(FLOWERPOWER_POSTS_API);
+    const response = await axios.get(url);
 
     console.log(response.data);
 

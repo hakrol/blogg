@@ -6,9 +6,9 @@ import LoginForm from "../components/layout/LoginForm";
 export default function Login() {
 	return (
 		<>
+			<Layout>
 			<Head title="Login" />
 			<Heading h1="Login" />
-			<Layout>
 				<LoginForm />
 			</Layout>
 		</>

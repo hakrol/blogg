@@ -3,11 +3,10 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-
 import FormError from "../common/FormError";
-import { FLOWERPOWER_POSTS_API, TOKEN_PATH } from "../../constants/api";
+import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 
-const url = FLOWERPOWER_POSTS_API + TOKEN_PATH;
+const url = BASE_URL + TOKEN_PATH;
 
 const schema = yup.object().shape( {
     username: yup.string().required("Please enter username"),
