@@ -1,5 +1,7 @@
 import Head from "../components/layout/Head";
 import Layout from "../components/layout/Layout";
+import ContactForm from "../components/layout/ContactForm";
+import Heading from "../components/layout/Heading";
 
 export default function Contact() {
 	return (
@@ -7,7 +9,8 @@ export default function Contact() {
 			<Head title="Contact" />
 
 			<Layout>
-				<p>HELLO THIS IS CONTACT</p>
+				<Heading h1="Contact" />
+				<ContactForm />
 			</Layout>
 		</>
 	);

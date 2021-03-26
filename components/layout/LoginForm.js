@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Router, useHistory } from "react-router-dom";
+import { useRouter } from 'next/router';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,8 +7,6 @@ import axios from "axios";
 import FormError from "../common/FormError";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
-
-// import { useRouter } from 'next/router';
 
 
 const url = BASE_URL + TOKEN_PATH;
@@ -22,7 +20,7 @@ export default function LoginForm() {
 	const [submitting, setSubmitting] = useState(false);
 	const [loginError, setLoginError] = useState(null);
 
-	const history = useHistory();
+	const router = useRouter();
 
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
@@ -38,12 +36,12 @@ export default function LoginForm() {
 			const response = await axios.post(url, data);
 			console.log("response", response.data);
 			setAuth(response.data);
-			history.push("/");
+			router.push("/admin");
 
 
 		} catch (error) {
 			console.log("error", error);
-			setLoginError(error.toString());
+			setLoginError("Something went wrong! Try again.");
 		} finally {
 			setSubmitting(false);
 		}

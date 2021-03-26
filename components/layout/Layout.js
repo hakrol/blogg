@@ -2,18 +2,19 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavLink from "react-bootstrap/NavLink";
 import { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useRouter } from 'next/router';
+
 import AuthContext from "../../context/AuthContext";
 
 export default function Layout({ children }) {
 
 	const [auth, setAuth] = useContext(AuthContext);
 
-	const history = useHistory();
+	const router = useRouter();
 
 	function logout() {
 		setAuth(null);
-		history.push("/home");
+		router.push("/");
 	}
 
 	return (

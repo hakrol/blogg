@@ -1,5 +1,6 @@
 import Head from "../components/layout/Head";
 import Layout from "../components/layout/Layout";
+import Heading from "../components/layout/Heading";
 
 export default function Admin() {
 	return (
@@ -7,7 +8,8 @@ export default function Admin() {
 			<Head title="Admin" />
 
 			<Layout>
-				<p>HELLO THIS IS ADMIN</p>
+				<Heading h1="Admin" />
+				<p>Here you can admin all you want</p>
 			</Layout>
 		</>
 	);

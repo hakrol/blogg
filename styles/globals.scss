@@ -22,3 +22,11 @@ a {
 .content {
   max-width: 600px;
 }
+
+.form-error {
+  background-color: rgb(255, 158, 158);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 3px;
+  max-width: 200px;
+}
