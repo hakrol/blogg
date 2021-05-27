@@ -6,6 +6,10 @@
     max-width: 1200px;
     margin: 0 auto;
 
+    &-brand {
+        color: $colour-white !important;
+    }
+
     .nav-link {
         color: $colour-white !important;
 

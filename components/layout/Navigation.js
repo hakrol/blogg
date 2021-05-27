@@ -21,7 +21,7 @@ export default function Navigation() {
         <>
             <div className="navigation__container">
                 <Navbar expand="lg">
-                    <Navbar.Brand href="/"></Navbar.Brand>
+                    <Navbar.Brand href="/">Simple blogging</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
