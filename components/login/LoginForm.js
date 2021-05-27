@@ -72,7 +72,9 @@ export default function LoginForm() {
                             <FormError>{errors.password.message}</FormError>
                         )}
                     </div>
-                    <Button>{submitting ? "Loggin in..." : "Login"}</Button>
+                    <Button type="submit">
+                        {submitting ? "Loggin in..." : "Login"}
+                    </Button>
                 </fieldset>
             </form>
         </>

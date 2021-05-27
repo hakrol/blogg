@@ -1,6 +1,9 @@
 ## A blogg
 
-A blogg
+A blogg.
+
+-   Next.js
+-   Wordpress REST API.
 
 ## Getting Started
 
@@ -11,6 +14,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Next
-
-This is a [Next.js](https://nextjs.org/) project.
+```
+Admin:
+Username: User
+Password: User1234
+```
