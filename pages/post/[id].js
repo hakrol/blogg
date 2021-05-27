@@ -1,4 +1,4 @@
-import { BASE_URL, FLOWERPOWER_POSTS_API } from "../../constants/api"
+import { BASE_URL, FLOWERPOWER_POSTS_API } from "../../constants/api";
 import axios from "axios";
 import Layout from "../../components/layout/Layout";
 import Head from "../../components/layout/Head";
@@ -12,13 +12,16 @@ export default function Post({ post }) {
         <Layout>
             <Head title={post.title.rendered} />
             <Heading h1={post.title.rendered} />
-            <p className="date">{moment(post.date).format('DD MMMM YYYY')}</p>
-            <div className="content" dangerouslySetInnerHTML={{__html: post.content.rendered}} />
+            <p className="date">{moment(post.date).format("DD MMMM YYYY")}</p>
+            <div
+                className="content"
+                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+            />
         </Layout>
-    )
+    );
 }
 
-export async function getStaticPaths () {
+export async function getStaticPaths() {
     try {
         const response = await axios.get(url);
 
@@ -28,12 +31,10 @@ export async function getStaticPaths () {
             params: { id: post.id.toString() },
         }));
 
-        return {paths: paths, fallback: false};
-
-    } catch(error) {
+        return { paths: paths, fallback: false };
+    } catch (error) {
         console.log(error);
     }
-
 }
 
 export async function getStaticProps({ params }) {
@@ -45,7 +46,6 @@ export async function getStaticProps({ params }) {
         const response = await axios.get(url);
         post = response.data;
         console.log(post);
-
     } catch (error) {
         console.log(error);
     }
