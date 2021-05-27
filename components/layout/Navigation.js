@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import NavLink from "react-bootstrap/NavLink";
 import { useContext } from "react";
 import { useRouter } from "next/router";
+import { Button } from "react-bootstrap";
 
 import AuthContext from "../../context/AuthContext";
 
@@ -18,25 +19,52 @@ export default function Navigation() {
 
     return (
         <>
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="/">Blogged</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto">
-                        <NavLink href="/">Home</NavLink>
-                        <NavLink href="/contact">Contact</NavLink>
+            <div className="navigation__container">
+                <Navbar expand="lg">
+                    <Navbar.Brand href="/"></Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ml-auto">
+                            <NavLink
+                                href="/"
+                                className={
+                                    router.pathname == "/" ? "active" : ""
+                                }
+                            >
+                                Home
+                            </NavLink>
+                            <NavLink
+                                href="/contact"
+                                className={
+                                    router.pathname == "/contact"
+                                        ? "active"
+                                        : ""
+                                }
+                            >
+                                Contact
+                            </NavLink>
 
-                        {auth ? (
-                            <>
-                                <NavLink href="/admin">Admin</NavLink>
-                                <button onClick={logout}>Logout</button>
-                            </>
-                        ) : (
-                            <NavLink href="/login">Login</NavLink>
-                        )}
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+                            {auth ? (
+                                <>
+                                    <NavLink
+                                        href="/admin"
+                                        className={
+                                            router.pathname == "/admin"
+                                                ? "active"
+                                                : ""
+                                        }
+                                    >
+                                        Admin
+                                    </NavLink>
+                                    <Button onClick={logout}>Logout</Button>
+                                </>
+                            ) : (
+                                <Button href="/login">Login</Button>
+                            )}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+            </div>
         </>
     );
 }

@@ -1,0 +1,9 @@
+.btn-primary {
+    background-color: $colour-button !important;
+    color: $button-text-colour !important;
+    border: none !important;
+
+    &:hover {
+        background-color: $colour-button-accent !important;
+    }
+}

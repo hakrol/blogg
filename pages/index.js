@@ -4,29 +4,17 @@ import Layout from "../components/layout/Layout";
 import Heading from "../components/layout/Heading";
 import axios from "axios";
 import { BASE_URL, FLOWERPOWER_POSTS_API } from "../constants/api";
+import BlogPosts from "../components/home/BlogPosts";
 
 const url = BASE_URL + FLOWERPOWER_POSTS_API;
 
-export default function Home(props) {
+export default function Home() {
     return (
         <>
             <Layout>
                 <Head title="Home" />
-                <Heading h1="THIS IS H!" />
-                {props.posts.map((post) => {
-                    return (
-                        <div key={post.id}>
-                            <h3>{post.title.rendered}</h3>
-                            <div
-                                className="excerpt"
-                                dangerouslySetInnerHTML={{
-                                    __html: post.excerpt.rendered,
-                                }}
-                            />
-                            <a href={`post/${post.id}`}>Read more</a>
-                        </div>
-                    );
-                })}
+                <Heading h1="Blogg" />
+                <BlogPosts />
             </Layout>
         </>
     );

@@ -1,0 +1,21 @@
+.navigation__container {
+    background-color: $colour-accent !important;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .nav-link {
+        color: $colour-white !important;
+
+        &:hover {
+            text-decoration: 3px underline solid;
+        }
+    }
+}
+
+// Active navlink //
+.active {
+    text-decoration: 3px underline solid;
+}

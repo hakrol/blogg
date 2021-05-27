@@ -14,6 +14,13 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: $colour-background !important;
+    color: $colour-white !important;
+}
+
+.body__container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 /*---------------------------------------------------------*/
 
@@ -30,10 +37,3 @@ body {
 }
 
 /*---------------------------------------------------------*/
-
-//
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
